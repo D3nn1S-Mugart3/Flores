@@ -27,7 +27,7 @@ function showRandomWord() {
 
   setTimeout(() => {
     wordElement.remove();
-  }, 3000); // Quitar palabra después de 3 segundos
+  }, 4000); // Quitar palabra después de 4 segundos
 }
 
 setInterval(showRandomWord, 1500); // Mostrar una palabra cada 1.5 segundos

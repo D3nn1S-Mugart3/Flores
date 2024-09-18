@@ -31,7 +31,41 @@
 /* Estilo general para el texto romántico */
 body {
     font-family: 'Lobster', cursive;
-    /* Usando la fuente */
     font-size: 1.6em;
     color: #ff69b4;
+}
+
+/* Para ajustar el tamaño del texto responsivamente */
+
+/* Pantallas pequeñas (240px a 320px) */
+@media screen and (max-width: 320px) {
+    .blinking-text {
+        font-size: 20px;
+    }
+
+    body {
+        font-size: 1.2em;
+    }
+}
+
+/* Pantallas medianas (360px a 480px) */
+@media screen and (min-width: 360px) and (max-width: 480px) {
+    .blinking-text {
+        font-size: 28px;
+    }
+
+    body {
+        font-size: 1.4em;
+    }
+}
+
+/* Pantallas grandes (más de 480px) */
+@media screen and (min-width: 481px) {
+    .blinking-text {
+        font-size: 34px;
+    }
+
+    body {
+        font-size: 1.6em;
+    }
 }

@@ -11,9 +11,9 @@
 
 .heart {
     position: absolute;
-    width: 10px;
-    /* Corazones más pequeños */
-    height: 10px;
+    width: 20px;
+    /* Tamaño base */
+    height: 20px;
     background-color: #ff4d4d;
     transform: rotate(45deg);
     animation: floatUp 4s infinite ease-in-out;
@@ -25,75 +25,79 @@
 .heart::after {
     content: '';
     position: absolute;
-    width: 10px;
-    /* Tamaño reducido */
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #ff4d4d;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -5px;
+    top: -10px;
     left: 0;
 }
 
 .heart::after {
-    left: -5px;
+    left: -10px;
     top: 0;
 }
 
 /* Animación de los corazones subiendo */
 @keyframes floatUp {
     0% {
-        bottom: -10px;
+        bottom: -20px;
         opacity: 1;
-        transform: scale(0.5) rotate(45deg) translateX(0px);
-        /* Tamaño reducido */
+        transform: scale(1) rotate(45deg) translateX(0px);
     }
 
     50% {
         opacity: 1;
-        transform: scale(0.7) rotate(45deg) translateX(5px);
+        transform: scale(1.2) rotate(45deg) translateX(10px);
     }
 
     100% {
         bottom: 100%;
         opacity: 1;
-        transform: scale(1) rotate(45deg) translateX(-5px);
+        transform: scale(1.5) rotate(45deg) translateX(-10px);
     }
 }
 
-/* Estilos responsivos para pantallas pequeñas */
+/* Estilos responsivos */
 
 /* Para pantallas de 240px a 320px */
 @media screen and (max-width: 320px) {
     .heart {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        /* Corazones más pequeños */
+        height: 10px;
     }
 
     .heart::before,
     .heart::after {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        /* Partes del corazón más pequeñas */
+        height: 10px;
     }
 
     @keyframes floatUp {
         0% {
             bottom: -10px;
+            /* Ajustamos el punto de inicio */
             opacity: 1;
-            transform: scale(0.4) rotate(45deg) translateX(0px);
+            transform: scale(0.5) rotate(45deg) translateX(0px);
+            /* Más pequeño en la escala */
         }
 
         50% {
             opacity: 1;
-            transform: scale(0.6) rotate(45deg) translateX(5px);
+            transform: scale(0.7) rotate(45deg) translateX(5px);
+            /* Movimiento más suave */
         }
 
         100% {
             bottom: 100%;
             opacity: 1;
             transform: scale(0.9) rotate(45deg) translateX(-5px);
+            /* Escala más reducida */
         }
     }
 }
@@ -101,32 +105,37 @@
 /* Para pantallas de 360px a 480px */
 @media screen and (min-width: 360px) and (max-width: 480px) {
     .heart {
-        width: 12px;
-        height: 12px;
+        width: 15px;
+        /* Tamaño intermedio */
+        height: 15px;
     }
 
     .heart::before,
     .heart::after {
-        width: 12px;
-        height: 12px;
+        width: 15px;
+        height: 15px;
     }
 
     @keyframes floatUp {
         0% {
             bottom: -15px;
+            /* Ajustamos el punto de inicio */
             opacity: 1;
-            transform: scale(0.6) rotate(45deg) translateX(0px);
+            transform: scale(0.7) rotate(45deg) translateX(0px);
+            /* Escala intermedia */
         }
 
         50% {
             opacity: 1;
-            transform: scale(0.8) rotate(45deg) translateX(5px);
+            transform: scale(1) rotate(45deg) translateX(7px);
+            /* Movimiento suave */
         }
 
         100% {
             bottom: 100%;
             opacity: 1;
-            transform: scale(1.1) rotate(45deg) translateX(-5px);
+            transform: scale(1.3) rotate(45deg) translateX(-7px);
+            /* Escala intermedia */
         }
     }
 }

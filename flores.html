@@ -11,8 +11,76 @@
     <link rel="icon" href="img/margarita.png">
     <title>FLORES</title>
 </head>
+<style>
+    .word-container {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        animation: fadeIn 5s infinite;
+    }
+
+    .word {
+        font-size: 2rem;
+        /* Default size */
+        color: #fff;
+        opacity: 0;
+        position: absolute;
+        transition: opacity 1.5s ease-in-out;
+    }
+
+    /* Para pantallas de 240px a 360px */
+    @media screen and (max-width: 360px) {
+        .word {
+            font-size: 1rem;
+            /* Ajustar a 1rem para pantallas pequeñas */
+        }
+    }
+
+    /* Para pantallas de 360px a 480px */
+    @media screen and (min-width: 361px) and (max-width: 480px) {
+        .word {
+            font-size: 1.5rem;
+            /* Ajustar a 1.5rem para pantallas medianas */
+        }
+    }
+
+    /* Para pantallas de 480px a 720px */
+    @media screen and (min-width: 481px) and (max-width: 720px) {
+        .word {
+            font-size: 1.75rem;
+            /* Ajustar a 1.75rem para pantallas grandes */
+        }
+    }
+
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
 
 <body class="container">
+    <div class="word-container" id="wordContainer"></div>
     <div class="night"></div>
     <div class="blinking-text" id="animatedText">Te amo, este es tu regalo especial para el 21 de septiembre 💖</div>
     <div class="text-container">
@@ -317,6 +385,63 @@
     <script src="js/main.js"></script>
     <script src="js/hearts.js"></script>
     <script src="js/random_phrases.js"></script>
+    <script>
+        const words = [
+            "Mi querida Florencia, 😅🤭🥰", "Quiero aprovechar este momento",
+            "para decirte", "lo hermosa que eres", "y cuánto valoro cada instante",
+            "que compartimos juntos", "aunque a veces nos ponemos timidos",
+            "y nos quedamos callados por un tiempo.",
+            "Eres, sin duda, una de las personas más bellas",
+            "y no hablo solo de tu exterior, sino de todo lo que llevas dentro",
+            "Tu sonrisa, esa que ilumina todo a su alrededor,",
+            "esas miradas que pones cuando estas distraida",
+            "esos ojos hermoso", "que cuando reciben la luz del sol,",
+            "se vuelven brillantes", "Quiero que sepas que me encanta cada parte de ti,",
+            "desde tu ternura hasta tu energía,", "incluso esas pequeñas cosas que a veces te hacen sentir insegura",
+            "Para mí,", "eres perfecta tal como eres,", "me gusta cómo luces,",
+            "me gusta tu cuerpo,", "me gusta cómo te ves en cada mirada", "y en cada gesto",
+            "no hay nada en ti que no adore.", "Es un privilegio poder caminar a tu lado",
+            "y cada día me siento más afortunado de poder llamarte 'mi amor'",
+            "Gracias por ser tú,", "por todo lo que compartes conmigo,",
+            "y por dejarme ser parte de tu vida.", "Con todo mi amor, Dennis 'El wuero'😅", "tu precioso negro🥰"
+        ];
+        const container = document.getElementById('wordContainer');
+
+        function showWords(index = 0) {
+            if (index >= words.length) return; // Si ya mostramos todas las palabras, terminar
+
+            const wordElement = document.createElement('div');
+            wordElement.classList.add('word');
+            wordElement.innerText = words[index];
+
+            // Generar posición aleatoria
+            wordElement.style.top = Math.random() * 80 + 'vh';
+            wordElement.style.left = Math.random() * 80 + 'vw';
+
+            container.appendChild(wordElement);
+
+            // Aparecer la palabra
+            setTimeout(() => {
+                wordElement.style.opacity = 1;
+
+                // Desaparecer la palabra después de 4 segundos
+                setTimeout(() => {
+                    wordElement.style.opacity = 0;
+
+                    // Remover la palabra del DOM después de que desaparezca
+                    setTimeout(() => {
+                        container.removeChild(wordElement);
+
+                        // Mostrar la siguiente palabra
+                        showWords(index + 1);
+                    }, 1500); // 1.5 segundos para la transición de desaparición
+                }, 3000); // 3 segundos visible antes de desaparecer
+            }, 100); // Aparecer inmediatamente
+        }
+
+        // Iniciar el ciclo para mostrar las palabras
+        showWords();
+    </script>
 </body>
 
 </html>
