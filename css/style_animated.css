@@ -1,0 +1,416 @@
+body {
+            background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
+                radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)),
+                repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px,
+                    transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px,
+                    transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px,
+                    rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(21, 255, 0),
+                    rgb(240, 240, 240));
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .message-container {
+            z-index: 100;
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+            position: relative;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.9);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .message-container h1 {
+            font-size: 3rem;
+            color: #ff69b4;
+            font-family: 'Pacifico', cursive;
+            /* Fuente cursiva romántica */
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .message-container p {
+            font-size: 1.5rem;
+            color: #333;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Contenedor de la imagen para centrarla */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Ajustar imagen para que se vea bien en diferentes tamaños */
+        .gift-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Botón interactivo */
+        .button-reveal {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-reveal:hover {
+            background-color: #ff1493;
+        }
+
+        /* Estilo de imágenes flotantes */
+        .floating-heart {
+            position: absolute;
+            width: 40px;
+            animation: floatUp 4s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+
+        /* Corazones animados */
+        .heart1 {
+            left: 10%;
+            top: 70%;
+            animation-delay: 0s;
+        }
+
+        .heart2 {
+            left: 25%;
+            top: 50%;
+            animation-delay: 1s;
+        }
+
+        .heart3 {
+            left: 50%;
+            top: 90%;
+            animation-delay: 2s;
+        }
+
+        .heart4 {
+            left: 75%;
+            top: 30%;
+            animation-delay: 1s;
+        }
+
+        .heart5 {
+            left: 90%;
+            top: 60%;
+            animation-delay: 2s;
+        }
+
+        /* Estilos para las palabras aleatorias */
+        .word {
+            z-index: 50;
+            font-family: 'Pacifico', cursive;
+            color: #ff69b4;
+            font-size: 3rem;
+            position: absolute;
+            animation: fadeInWord 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInWord {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividad para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .message-container {
+                width: 90%;
+                padding: 15px;
+                font-size: 0.9rem;
+                /* Reduce el tamaño de la fuente */
+            }
+
+            .message-container h1 {
+                font-size: 1.8rem;
+                /* Ajuste del título en móviles */
+            }
+
+            .message-container p {
+                font-size: 1.2rem;
+                /* Ajuste del párrafo en móviles */
+            }
+
+            .button-reveal {
+                font-size: 0.9rem;
+                /* Reducir el tamaño del botón */
+            }
+
+            .floating-heart {
+                width: 8vw;
+                /* Hacer los corazones más pequeños */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .message-container {
+                width: 95%;
+                padding: 10px;
+                font-size: 0.8rem;
+                /* Reducir aún más el tamaño de la fuente */
+            }
+
+            .message-container h1 {
+                font-size: 1.5rem;
+                /* Título más pequeño para pantallas de menos de 480px */
+            }
+
+            .message-container p {
+                font-size: 1rem;
+            }
+
+            .button-reveal {
+                font-size: 0.8rem;
+            }
+
+            .floating-heart {
+                width: 6vw;
+                /* Corazones aún más pequeños en pantallas muy pequeñas */
+            }
+        }
+
+        /* Responsividad para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .message-container {
+                width: 90%;
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+
+            .message-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .message-container p {
+                font-size: 1.2rem;
+            }
+
+            .button-reveal {
+                font-size: 0.9rem;
+            }
+
+            .floating-heart {
+                width: 8vw;
+            }
+        }
+
+        /* Para pantallas de hasta 480px */
+        @media (max-width: 480px) {
+            .word {
+                font-size: 1.5rem;
+                /* Reducir el tamaño del texto */
+            }
+
+            .message-container {
+                width: 95%;
+                max-width: 320px;
+                padding: 12px;
+                font-size: 0.8rem;
+            }
+
+            .message-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .message-container p {
+                font-size: 1rem;
+            }
+
+            .button-reveal {
+                font-size: 0.8rem;
+            }
+
+            .gift-image {
+                max-width: 90%;
+                /* Ajustar imagen */
+                height: auto;
+            }
+
+            .floating-heart {
+                width: 6vw;
+            }
+        }
+
+        /* Para pantallas muy pequeñas de hasta 360px */
+        @media (max-width: 360px) {
+            .message-container {
+                width: 98%;
+                padding: 8px;
+                font-size: 0.75rem;
+            }
+
+            .message-container h1 {
+                font-size: 1.3rem;
+            }
+
+            .message-container p {
+                font-size: 0.9rem;
+            }
+
+            .button-reveal {
+                font-size: 0.75rem;
+            }
+
+            .floating-heart {
+                width: 5vw;
+            }
+        }
+
+        /* Para pantallas muy pequeñas de hasta 270px */
+        @media (max-width: 270px) {
+            .word {
+                font-size: 1rem;
+                /* Reducir el tamaño del texto */
+            }
+
+            .message-container {
+                width: 90%;
+                /* Reducir el ancho del modal */
+                max-width: 250px;
+                /* Limitar el ancho máximo */
+                padding: 8px;
+                /* Reducir el padding */
+                font-size: 0.7rem;
+                /* Texto más pequeño */
+            }
+
+            .message-container h1 {
+                font-size: 1.2rem;
+                /* Reducir el título */
+            }
+
+            .message-container p {
+                font-size: 0.8rem;
+            }
+
+            .button-reveal {
+                font-size: 0.7rem;
+                /* Botón más pequeño */
+            }
+
+            .image-container {
+                margin-top: 10px;
+            }
+
+            .gift-image {
+                max-width: 80%;
+                /* Reducir la imagen */
+                height: auto;
+                /* Mantener la proporción */
+            }
+
+            .floating-heart {
+                width: 4vw;
+                /* Corazones más pequeños */
+            }
+        }
+
+        /* Para pantallas ligeramente más grandes que 270px (hasta 320px) */
+        @media (min-width: 271px) and (max-width: 320px) {
+            .word {
+                font-size: 1.2rem;
+                /* Reducir el tamaño del texto */
+            }
+
+            .message-container {
+                width: 90%;
+                max-width: 280px;
+                /* Aumentar el ancho máximo ligeramente */
+                padding: 10px;
+                font-size: 0.75rem;
+            }
+
+            .message-container h1 {
+                font-size: 1.3rem;
+                /* Ajustar el título */
+            }
+
+            .message-container p {
+                font-size: 0.9rem;
+            }
+
+            .button-reveal {
+                font-size: 0.75rem;
+            }
+
+            .image-container {
+                margin-top: 12px;
+            }
+
+            .gift-image {
+                max-width: 85%;
+                /* Reducir imagen pero no tanto como en 270px */
+                height: auto;
+            }
+
+            .floating-heart {
+                width: 5vw;
+                /* Ajustar el tamaño de los corazones */
+            }
+        }
